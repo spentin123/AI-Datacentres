@@ -10,6 +10,7 @@ import { MetricReadout } from "@/components/primitives/MetricReadout";
 import { SourceList } from "@/components/primitives/SourceList";
 import { OperatorBrief } from "@/components/panels/OperatorBrief";
 import { formatMW, formatPct } from "@/lib/format";
+import { isSiteStale, newestSourceDate } from "@/lib/derive";
 
 interface Props {
   sites: DataCenter[];
@@ -66,6 +67,19 @@ export function SiteDetailPanel({ sites, companies }: Props) {
                     </span>
                     <StatusChip status={site.status} />
                     <ConfidenceBadge level={site.confidence} />
+                    {isSiteStale(site) && (
+                      <span
+                        className="px-1.5 py-0.5 font-mono text-[10px] tracking-widest border"
+                        style={{
+                          color: "var(--amber)",
+                          borderColor: "var(--amber)",
+                          opacity: 0.9,
+                        }}
+                        title={`Newest source: ${newestSourceDate(site)?.toISOString().slice(0, 10) ?? "unknown"}`}
+                      >
+                        STALE
+                      </span>
+                    )}
                   </div>
                   <h2
                     className="mt-2 text-2xl chromatic"

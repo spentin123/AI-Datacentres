@@ -1,5 +1,11 @@
 import type { DataCenter, Company, PowerSource, ViewMode } from "@/types";
-import { aiGradientColor, mwToAltitude, mwToRadius } from "@/lib/derive";
+import {
+  aiGradientColor,
+  desaturate,
+  isSiteStale,
+  mwToAltitude,
+  mwToRadius,
+} from "@/lib/derive";
 import { lookupTenant, type TenantHQ } from "@/data/tenants";
 
 export const POWER_SOURCE_COLORS: Record<PowerSource, string> = {
@@ -46,6 +52,7 @@ export function buildPoints(
       else if (viewMode === "power_source")
         color = POWER_SOURCE_COLORS[site.powerSource];
       else color = aiGradientColor(site.workload.aiHpcPct);
+      if (isSiteStale(site)) color = desaturate(color, 0.6);
       return {
         site,
         lat: site.location.lat,

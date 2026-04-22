@@ -4,9 +4,11 @@ import { getDataset } from "@/data/dataset";
 import { GlobeScene } from "@/components/globe/GlobeScene";
 import { TickerMatrix } from "@/components/matrix/TickerMatrix";
 import { PipelineTimeline } from "@/components/timeline/PipelineTimeline";
+import { CinemaTour } from "@/components/cinema/CinemaTour";
 import { ScanlineOverlay } from "@/components/hud/ScanlineOverlay";
 import { SiteDetailPanel } from "@/components/panels/SiteDetailPanel";
 import { StatsTicker } from "@/components/panels/StatsTicker";
+import { AnnouncementTicker } from "@/components/panels/AnnouncementTicker";
 import { CompanyFilterBar } from "@/components/panels/CompanyFilterBar";
 import { ViewModeToggle } from "@/components/panels/ViewModeToggle";
 import { DisplayModeToggle } from "@/components/panels/DisplayModeToggle";
@@ -14,6 +16,7 @@ import { Legend } from "@/components/panels/Legend";
 import { CountryList } from "@/components/panels/CountryList";
 import { StatusFilterBar } from "@/components/panels/StatusFilterBar";
 import { BootSequence } from "@/components/intro/BootSequence";
+import { CommandPalette } from "@/components/primitives/CommandPalette";
 import { useAppStore } from "@/state/useAppStore";
 import { useUrlStateSync } from "@/lib/urlState";
 
@@ -85,6 +88,7 @@ export default function App() {
           className="absolute bottom-4 left-4 right-4 flex flex-col gap-2 pointer-events-auto"
           data-hud
         >
+          <AnnouncementTicker dataset={dataset} />
           <div className="overflow-x-auto pb-1">
             <StatusFilterBar dataset={dataset} />
           </div>
@@ -95,6 +99,7 @@ export default function App() {
             <div className="flex items-center gap-4 flex-wrap">
               <DisplayModeToggle />
               <ViewModeToggle />
+              <CinemaTour dataset={dataset} />
             </div>
             <div className="hud-meta flex items-center gap-1.5">
               <span
@@ -112,6 +117,9 @@ export default function App() {
 
       {/* Site detail panel (overlays HUD) */}
       <SiteDetailPanel sites={dataset.sites} companies={dataset.companies} />
+
+      {/* Command palette: `/` or ⌘K */}
+      <CommandPalette dataset={dataset} />
 
       {/* Intro boot sequence */}
       <BootSequence siteCount={dataset.sites.length} />

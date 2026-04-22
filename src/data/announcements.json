@@ -1,0 +1,88 @@
+{
+  "announcements": [
+    {
+      "date": "2025-03-20",
+      "headline": "WULF × Core42 · 72.5MW Lake Mariner AI colocation, 10-yr",
+      "tickers": ["WULF"],
+      "siteIds": ["wulf-lake-mariner"],
+      "url": "https://www.terawulf.com/press-releases"
+    },
+    {
+      "date": "2025-06-03",
+      "headline": "CORZ × CoreWeave · 12-yr HPC hosting contracts expanded to $10B+",
+      "tickers": ["CORZ"],
+      "siteIds": ["corz-denton", "corz-muskogee"],
+      "url": "https://investors.corescientific.com/news-releases"
+    },
+    {
+      "date": "2025-07-15",
+      "headline": "APLD × CoreWeave · Ellendale 400MW expansion agreement",
+      "tickers": ["APLD"],
+      "siteIds": ["apld-ellendale"],
+      "url": "https://ir.applieddigital.com"
+    },
+    {
+      "date": "2025-09-10",
+      "headline": "IREN Sweetwater · 2GW grid-connection agreement secured",
+      "tickers": ["IREN"],
+      "siteIds": ["iren-sweetwater1"],
+      "url": "https://investors.iren.com"
+    },
+    {
+      "date": "2025-10-08",
+      "headline": "HUT × HIGHBANK · Vega 205MW AI-only campus announced",
+      "tickers": ["HUT"],
+      "siteIds": ["hut-vega"],
+      "url": "https://hut8.com/investors"
+    },
+    {
+      "date": "2025-11-19",
+      "headline": "BTDR SEALMINER A3 · 15 J/TH ASIC launch",
+      "tickers": ["BTDR"],
+      "siteIds": [],
+      "url": "https://ir.bitdeer.com"
+    },
+    {
+      "date": "2026-01-22",
+      "headline": "CIFR Black Pearl · 300MW HPC build breaks ground",
+      "tickers": ["CIFR"],
+      "siteIds": ["cifr-black-pearl"],
+      "url": "https://investors.ciphermining.com"
+    },
+    {
+      "date": "2026-02-14",
+      "headline": "RIOT Corsicana · HPC conversion feasibility study filed",
+      "tickers": ["RIOT"],
+      "siteIds": ["riot-corsicana"],
+      "url": "https://www.riotplatforms.com/investors"
+    },
+    {
+      "date": "2026-03-05",
+      "headline": "MARA Abu Dhabi JV · 250MW operational, AI pilot announced",
+      "tickers": ["MARA"],
+      "siteIds": ["mara-abu-dhabi"],
+      "url": "https://ir.mara.com"
+    },
+    {
+      "date": "2026-03-18",
+      "headline": "MARA · $1.1B BTC sale to fund debt paydown + AI pivot seed",
+      "tickers": ["MARA"],
+      "siteIds": [],
+      "url": "https://ir.mara.com"
+    },
+    {
+      "date": "2026-04-02",
+      "headline": "HIVE Yguazú · Itaipu-hydro GPU fleet doubling to 200MW",
+      "tickers": ["HIVE"],
+      "siteIds": ["hive-yguazu"],
+      "url": "https://hivedigitaltechnologies.com/investors"
+    },
+    {
+      "date": "2026-04-11",
+      "headline": "IREN × MSFT · $9.7B, 14-year AI colocation signed",
+      "tickers": ["IREN"],
+      "siteIds": ["iren-childress"],
+      "url": "https://investors.iren.com"
+    }
+  ]
+}
