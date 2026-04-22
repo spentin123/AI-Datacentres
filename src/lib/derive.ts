@@ -1,0 +1,91 @@
+import type { DataCenter, Company } from "@/types";
+
+export function siteAiMW(site: DataCenter): number {
+  return site.capacity.currentMW * (site.workload.aiHpcPct / 100);
+}
+
+export function siteBtcMW(site: DataCenter): number {
+  return site.capacity.currentMW * (site.workload.btcMiningPct / 100);
+}
+
+export function totalCurrentMW(sites: DataCenter[]): number {
+  return sites.reduce((acc, s) => acc + s.capacity.currentMW, 0);
+}
+
+export function totalPlannedMW(sites: DataCenter[]): number {
+  return sites.reduce((acc, s) => acc + (s.capacity.plannedMW ?? 0), 0);
+}
+
+export function totalAiMW(sites: DataCenter[]): number {
+  return sites.reduce((acc, s) => acc + siteAiMW(s), 0);
+}
+
+export function totalAiPct(sites: DataCenter[]): number {
+  const total = totalCurrentMW(sites);
+  if (total === 0) return 0;
+  return (totalAiMW(sites) / total) * 100;
+}
+
+export function sitesByCompany(
+  sites: DataCenter[],
+): Record<string, DataCenter[]> {
+  const out: Record<string, DataCenter[]> = {};
+  for (const s of sites) {
+    (out[s.companyTicker] ??= []).push(s);
+  }
+  return out;
+}
+
+export function sitesByCountry(
+  sites: DataCenter[],
+): Record<string, DataCenter[]> {
+  const out: Record<string, DataCenter[]> = {};
+  for (const s of sites) {
+    (out[s.location.country] ??= []).push(s);
+  }
+  return out;
+}
+
+export function countryCentroid(sites: DataCenter[]): {
+  lat: number;
+  lng: number;
+} {
+  if (sites.length === 0) return { lat: 0, lng: 0 };
+  const lat =
+    sites.reduce((acc, s) => acc + s.location.lat, 0) / sites.length;
+  const lng =
+    sites.reduce((acc, s) => acc + s.location.lng, 0) / sites.length;
+  return { lat, lng };
+}
+
+export function companyByTicker(
+  companies: Company[],
+): Record<string, Company> {
+  return Object.fromEntries(companies.map((c) => [c.ticker, c]));
+}
+
+/** For AI-allocation color mode: 0-100% → amber → cyan gradient. */
+export function aiGradientColor(aiPct: number): string {
+  const t = Math.max(0, Math.min(1, aiPct / 100));
+  // #f59e0b (amber) → #22d3ee (cyan)
+  const from = [245, 158, 11];
+  const to = [34, 211, 238];
+  const r = Math.round(from[0] + (to[0] - from[0]) * t);
+  const g = Math.round(from[1] + (to[1] - from[1]) * t);
+  const b = Math.round(from[2] + (to[2] - from[2]) * t);
+  return `rgb(${r},${g},${b})`;
+}
+
+/** Perceptually fair point radius from MW (sqrt scaling). */
+export function mwToRadius(mw: number, min = 0.22, max = 1.4): number {
+  const s = Math.sqrt(Math.max(0, mw));
+  // Assume MW values in ~0-1000 range; sqrt in 0-32. Scale.
+  const t = Math.min(1, s / 32);
+  return min + (max - min) * t;
+}
+
+/** Altitude: sites with more MW sit slightly higher off the globe. */
+export function mwToAltitude(mw: number, cap = 0.08): number {
+  const t = Math.min(1, Math.sqrt(Math.max(0, mw)) / 32);
+  return 0.005 + cap * t;
+}

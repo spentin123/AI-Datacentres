@@ -1,0 +1,684 @@
+{
+  "schemaVersion": 1,
+  "lastUpdated": "2026-04-21T00:00:00Z",
+  "companies": [
+    {
+      "ticker": "CLSK",
+      "name": "CleanSpark, Inc.",
+      "exchange": "NASDAQ",
+      "color": "#fb923c",
+      "hqCity": "Las Vegas, NV",
+      "hqCountry": "USA",
+      "aiStrategy": "exploring",
+      "marketCapUsdM": 2600,
+      "fy2024RevenueUsdM": 525,
+      "aiRevenuePct": 0,
+      "hashrateEH": 50,
+      "description": "Pure-play BTC miner. Management has explicitly de-prioritised near-term AI pivot, making CLSK the roster counter-example.",
+      "ir_url": "https://investors.cleanspark.com"
+    },
+    {
+      "ticker": "HUT",
+      "name": "Hut 8 Corp.",
+      "exchange": "NASDAQ",
+      "color": "#8b5cf6",
+      "hqCity": "Miami, FL",
+      "hqCountry": "USA",
+      "aiStrategy": "hybrid",
+      "marketCapUsdM": 2100,
+      "fy2024RevenueUsdM": 171,
+      "aiRevenuePct": 8,
+      "hashrateEH": 10,
+      "description": "Post-USBTC merger hybrid. Announced Vega / Highbank 205MW AI-only campus; legacy BTC fleet across Alberta and TX/PA.",
+      "ir_url": "https://hut8.com/investors"
+    },
+    {
+      "ticker": "BTDR",
+      "name": "Bitdeer Technologies Group",
+      "exchange": "NASDAQ",
+      "color": "#facc15",
+      "hqCity": "Singapore",
+      "hqCountry": "Singapore",
+      "aiStrategy": "hybrid",
+      "marketCapUsdM": 2700,
+      "fy2024RevenueUsdM": 502,
+      "aiRevenuePct": 12,
+      "hashrateEH": 12,
+      "description": "Cloud-hash + proprietary SEALMINER ASIC + Nordic hydro. HPC/cloud segment the fastest-growing line; SEALMINER A3 differentiator.",
+      "ir_url": "https://ir.bitdeer.com"
+    },
+    {
+      "ticker": "HIVE",
+      "name": "HIVE Digital Technologies",
+      "exchange": "NASDAQ",
+      "color": "#10b981",
+      "hqCity": "Vancouver, BC",
+      "hqCountry": "Canada",
+      "aiStrategy": "hybrid",
+      "marketCapUsdM": 480,
+      "fy2024RevenueUsdM": 115,
+      "aiRevenuePct": 18,
+      "hashrateEH": 5,
+      "description": "Earliest AI pivot (H100 fleet since 2023). Itaipu-hydro Paraguay GPU campus is the growth story; fleet sized in GPU count, not MW.",
+      "ir_url": "https://hivedigitaltechnologies.com/investors"
+    },
+    {
+      "ticker": "IREN",
+      "name": "IREN Limited (Iris Energy)",
+      "exchange": "NASDAQ",
+      "color": "#ec4899",
+      "hqCity": "Sydney",
+      "hqCountry": "Australia",
+      "aiStrategy": "hybrid",
+      "marketCapUsdM": 9800,
+      "fy2024RevenueUsdM": 189,
+      "aiRevenuePct": 22,
+      "hashrateEH": 40,
+      "description": "Multi-GW pipeline (Childress 750MW, Sweetwater 2GW). Grid-connection agreements secured ahead of peers; GPU cloud live.",
+      "ir_url": "https://investors.iren.com"
+    },
+    {
+      "ticker": "WULF",
+      "name": "TeraWulf Inc.",
+      "exchange": "NASDAQ",
+      "color": "#06b6d4",
+      "hqCity": "Easton, MD",
+      "hqCountry": "USA",
+      "aiStrategy": "pureplay_ai",
+      "marketCapUsdM": 2400,
+      "fy2024RevenueUsdM": 140,
+      "aiRevenuePct": 27,
+      "hashrateEH": 13,
+      "description": "Lake Mariner zero-carbon HPC flagship. Core42 10-yr anchor + Fluidstack. Cayuga campus planned. Structural moat = hydro grid.",
+      "ir_url": "https://www.terawulf.com/investors"
+    },
+    {
+      "ticker": "CORZ",
+      "name": "Core Scientific, Inc.",
+      "exchange": "NASDAQ",
+      "color": "#f43f5e",
+      "hqCity": "Austin, TX",
+      "hqCountry": "USA",
+      "aiStrategy": "pureplay_ai",
+      "marketCapUsdM": 4100,
+      "fy2024RevenueUsdM": 510,
+      "aiRevenuePct": 39,
+      "hashrateEH": 20,
+      "description": "Largest AI colocation pivot by contracted $. CoreWeave 12-yr contracts >$10B; Denton + Muskogee as HPC conversions.",
+      "ir_url": "https://investors.corescientific.com"
+    },
+    {
+      "ticker": "APLD",
+      "name": "Applied Digital Corporation",
+      "exchange": "NASDAQ",
+      "color": "#a78bfa",
+      "hqCity": "Dallas, TX",
+      "hqCountry": "USA",
+      "aiStrategy": "pureplay_ai",
+      "marketCapUsdM": 1300,
+      "fy2024RevenueUsdM": 166,
+      "aiRevenuePct": 78,
+      "hashrateEH": 0,
+      "description": "Functionally pure HPC. Ellendale CoreWeave-anchored 400MW. Only TX site remains BTC hosting and may be divested.",
+      "ir_url": "https://ir.applieddigital.com"
+    },
+    {
+      "ticker": "MARA",
+      "name": "MARA Holdings, Inc.",
+      "exchange": "NASDAQ",
+      "color": "#f97316",
+      "hqCity": "Fort Lauderdale, FL",
+      "hqCountry": "USA",
+      "aiStrategy": "exploring",
+      "marketCapUsdM": 5600,
+      "fy2024RevenueUsdM": 656,
+      "aiRevenuePct": 3,
+      "hashrateEH": 55,
+      "description": "Largest hashrate + large balance sheet. Sold ~15k BTC ($1.1B) in Mar 2026 to fund debt paydown and AI pivot seed; Abu Dhabi JV.",
+      "ir_url": "https://ir.mara.com"
+    },
+    {
+      "ticker": "RIOT",
+      "name": "Riot Platforms, Inc.",
+      "exchange": "NASDAQ",
+      "color": "#ef4444",
+      "hqCity": "Castle Rock, CO",
+      "hqCountry": "USA",
+      "aiStrategy": "exploring",
+      "marketCapUsdM": 3200,
+      "fy2024RevenueUsdM": 377,
+      "aiRevenuePct": 2,
+      "hashrateEH": 36,
+      "description": "Corsicana 1GW + Rockdale 700MW. BTC-dominant; HPC conversion on Corsicana exploratory, not contracted.",
+      "ir_url": "https://www.riotplatforms.com/investors"
+    },
+    {
+      "ticker": "CIFR",
+      "name": "Cipher Mining Inc.",
+      "exchange": "NASDAQ",
+      "color": "#14b8a6",
+      "hqCity": "New York, NY",
+      "hqCountry": "USA",
+      "aiStrategy": "hybrid",
+      "marketCapUsdM": 1900,
+      "fy2024RevenueUsdM": 151,
+      "aiRevenuePct": 5,
+      "hashrateEH": 13,
+      "description": "Barber Lake announced as 500MW HPC conversion. Revenue still ~all BTC; HPC monetisation inflects FY2026.",
+      "ir_url": "https://investors.ciphermining.com"
+    }
+  ],
+  "sites": [
+    {
+      "id": "corz-denton",
+      "companyTicker": "CORZ",
+      "name": "Denton",
+      "location": { "lat": 33.2148, "lng": -97.1331, "city": "Denton", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 200, "plannedMW": 200, "finalTargetMW": 400 },
+      "workload": { "btcMiningPct": 0, "aiHpcPct": 100 },
+      "powerSource": "grid",
+      "powerSourceDetail": "ERCOT — CoreWeave HPC hosting",
+      "status": "under_construction",
+      "commissioned": "2025",
+      "tenants": ["CoreWeave"],
+      "notes": "Flagship CoreWeave hosting conversion anchoring 12-yr >$10B contract. Phase 1 live; Phase 2 under construction.",
+      "sources": [
+        { "label": "Core Scientific IR — CoreWeave agreements", "url": "https://investors.corescientific.com/news-releases", "date": "2026-04-21" }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "corz-muskogee",
+      "companyTicker": "CORZ",
+      "name": "Muskogee",
+      "location": { "lat": 35.7479, "lng": -95.3697, "city": "Muskogee", "region": "OK", "country": "USA" },
+      "capacity": { "currentMW": 160, "plannedMW": 100 },
+      "workload": { "btcMiningPct": 40, "aiHpcPct": 60 },
+      "powerSource": "grid",
+      "status": "under_construction",
+      "notes": "Converting portion of BTC capacity to CoreWeave HPC under expanded contract.",
+      "sources": [
+        { "label": "Core Scientific 10-K FY2024", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001839341&type=10-K", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "corz-marble",
+      "companyTicker": "CORZ",
+      "name": "Marble",
+      "location": { "lat": 35.5123, "lng": -83.9415, "city": "Marble", "region": "NC", "country": "USA" },
+      "capacity": { "currentMW": 90 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "sources": [
+        { "label": "Core Scientific site portfolio", "url": "https://investors.corescientific.com/news-releases", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "corz-calvert",
+      "companyTicker": "CORZ",
+      "name": "Calvert City",
+      "location": { "lat": 37.0348, "lng": -88.3495, "city": "Calvert City", "region": "KY", "country": "USA" },
+      "capacity": { "currentMW": 150 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "sources": [
+        { "label": "Core Scientific 10-K FY2024", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001839341&type=10-K", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "wulf-lake-mariner",
+      "companyTicker": "WULF",
+      "name": "Lake Mariner",
+      "location": { "lat": 43.3173, "lng": -78.6928, "city": "Somerset", "region": "NY", "country": "USA" },
+      "capacity": { "currentMW": 245, "plannedMW": 250, "finalTargetMW": 750 },
+      "workload": { "btcMiningPct": 60, "aiHpcPct": 40 },
+      "powerSource": "hydro",
+      "powerSourceDetail": "Niagara region — >90% zero-carbon",
+      "status": "under_construction",
+      "commissioned": "2023",
+      "tenants": ["Core42", "Fluidstack"],
+      "notes": "Phased HPC buildout. Core42 10-year agreement anchors initial HPC phases. Zero-carbon grid is the structural moat.",
+      "sources": [
+        { "label": "TeraWulf Lake Mariner HPC overview", "url": "https://www.terawulf.com/hpc", "date": "2026-04-21" },
+        { "label": "TeraWulf 10-K FY2024", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001083301&type=10-K", "date": "2026-04-21" }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "wulf-cayuga",
+      "companyTicker": "WULF",
+      "name": "Cayuga",
+      "location": { "lat": 42.5939, "lng": -76.8205, "city": "Lansing", "region": "NY", "country": "USA" },
+      "capacity": { "currentMW": 0, "plannedMW": 150, "finalTargetMW": 400 },
+      "workload": { "btcMiningPct": 0, "aiHpcPct": 100 },
+      "powerSource": "grid",
+      "status": "planned",
+      "notes": "Second NY HPC campus announced, planning stage.",
+      "sources": [
+        { "label": "TeraWulf investor update", "url": "https://www.terawulf.com/investors", "date": "2026-04-21" }
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "iren-childress",
+      "companyTicker": "IREN",
+      "name": "Childress",
+      "location": { "lat": 34.4265, "lng": -100.2043, "city": "Childress", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 350, "plannedMW": 400, "finalTargetMW": 750 },
+      "workload": { "btcMiningPct": 55, "aiHpcPct": 45 },
+      "powerSource": "mixed",
+      "powerSourceDetail": "ERCOT — high wind/solar penetration",
+      "status": "operational",
+      "tenants": ["Microsoft (GB300 cluster)", "NVIDIA H200"],
+      "notes": "Anchor of IREN's $9.7B Microsoft 5-yr AI hosting deal — 200MW dedicated to ~76k GB300 GPUs. Remaining capacity BTC-dominant but scheduled to flip.",
+      "sources": [
+        { "label": "IREN Microsoft AI hosting announcement", "url": "https://investors.iren.com/reports-presentations", "date": "2026-04-21" },
+        { "label": "IREN Q4 FY2024 results", "url": "https://investors.iren.com/reports-presentations", "date": "2026-04-21" }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "iren-sweetwater1",
+      "companyTicker": "IREN",
+      "name": "Sweetwater 1",
+      "location": { "lat": 32.4712, "lng": -100.4059, "city": "Sweetwater", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 0, "plannedMW": 1400, "finalTargetMW": 2000 },
+      "workload": { "btcMiningPct": 0, "aiHpcPct": 100 },
+      "powerSource": "grid",
+      "powerSourceDetail": "ERCOT, 2GW grid connection secured",
+      "status": "under_construction",
+      "notes": "Long-lead 2GW AI-dedicated campus. Grid connection agreement in hand.",
+      "sources": [
+        { "label": "IREN Sweetwater announcement", "url": "https://investors.iren.com/reports-presentations", "date": "2026-04-21" }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "iren-canal-flats",
+      "companyTicker": "IREN",
+      "name": "Canal Flats",
+      "location": { "lat": 50.1593, "lng": -115.8499, "city": "Canal Flats", "region": "BC", "country": "Canada" },
+      "capacity": { "currentMW": 30 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "hydro",
+      "status": "operational",
+      "sources": [
+        { "label": "IREN BC hydro operations", "url": "https://iren.com/sites", "date": "2026-04-21" }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "iren-prince-george",
+      "companyTicker": "IREN",
+      "name": "Prince George",
+      "location": { "lat": 53.9171, "lng": -122.7497, "city": "Prince George", "region": "BC", "country": "Canada" },
+      "capacity": { "currentMW": 50 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "hydro",
+      "status": "operational",
+      "sources": [
+        { "label": "IREN BC hydro operations", "url": "https://iren.com/sites", "date": "2026-04-21" }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "apld-ellendale",
+      "companyTicker": "APLD",
+      "name": "Ellendale Campus",
+      "location": { "lat": 46.0011, "lng": -98.5276, "city": "Ellendale", "region": "ND", "country": "USA" },
+      "capacity": { "currentMW": 100, "plannedMW": 300, "finalTargetMW": 400 },
+      "workload": { "btcMiningPct": 0, "aiHpcPct": 100 },
+      "powerSource": "wind",
+      "powerSourceDetail": "North Dakota wind — low LCOE",
+      "status": "under_construction",
+      "tenants": ["CoreWeave"],
+      "notes": "Multi-building HPC campus. CoreWeave anchor tenant. One of the larger pure-AI sites operated by a former miner.",
+      "sources": [
+        { "label": "Applied Digital Ellendale updates", "url": "https://ir.applieddigital.com/news-events/press-releases", "date": "2026-04-21" }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "apld-jamestown",
+      "companyTicker": "APLD",
+      "name": "Jamestown",
+      "location": { "lat": 46.9105, "lng": -98.7084, "city": "Jamestown", "region": "ND", "country": "USA" },
+      "capacity": { "currentMW": 100 },
+      "workload": { "btcMiningPct": 0, "aiHpcPct": 100 },
+      "powerSource": "wind",
+      "status": "operational",
+      "notes": "HPC hosting facility, pre-dates Ellendale scale-up.",
+      "sources": [
+        { "label": "Applied Digital 10-K", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001717099&type=10-K", "date": "2026-04-21" }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "apld-garden-city",
+      "companyTicker": "APLD",
+      "name": "Garden City",
+      "location": { "lat": 31.8718, "lng": -101.4846, "city": "Garden City", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 200 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "tenants": ["MARA (hosting)"],
+      "notes": "BTC hosting site — legacy segment; management has flagged possible divestiture.",
+      "sources": [
+        { "label": "Applied Digital 10-K", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001717099&type=10-K", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "hut-vega",
+      "companyTicker": "HUT",
+      "name": "Vega (Highbank)",
+      "location": { "lat": 35.2424, "lng": -102.4266, "city": "Vega", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 0, "plannedMW": 205, "finalTargetMW": 205 },
+      "workload": { "btcMiningPct": 0, "aiHpcPct": 100 },
+      "powerSource": "grid",
+      "status": "planned",
+      "notes": "AI-only greenfield site announced as Hut 8's flagship HPC campus.",
+      "sources": [
+        { "label": "Hut 8 AI/HPC strategy update", "url": "https://hut8.com/investors", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "hut-salt-creek",
+      "companyTicker": "HUT",
+      "name": "Salt Creek (Alpha)",
+      "location": { "lat": 41.1017, "lng": -78.4317, "city": "Salt Creek", "region": "PA", "country": "USA" },
+      "capacity": { "currentMW": 75 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "gas",
+      "powerSourceDetail": "Behind-the-meter natural gas",
+      "status": "operational",
+      "sources": [
+        { "label": "Hut 8 site portfolio", "url": "https://hut8.com/investors", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "hut-medicine-hat",
+      "companyTicker": "HUT",
+      "name": "Medicine Hat",
+      "location": { "lat": 50.0421, "lng": -110.6779, "city": "Medicine Hat", "region": "AB", "country": "Canada" },
+      "capacity": { "currentMW": 100 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "gas",
+      "status": "operational",
+      "sources": [
+        { "label": "Hut 8 Canadian operations", "url": "https://hut8.com/investors", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "btdr-rockdale",
+      "companyTicker": "BTDR",
+      "name": "Rockdale",
+      "location": { "lat": 30.6552, "lng": -97.0017, "city": "Rockdale", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 180 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "sources": [
+        { "label": "Bitdeer 20-F FY2024", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001964738&type=20-F", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "btdr-knoxville",
+      "companyTicker": "BTDR",
+      "name": "Knoxville",
+      "location": { "lat": 35.9606, "lng": -83.9207, "city": "Knoxville", "region": "TN", "country": "USA" },
+      "capacity": { "currentMW": 75 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "sources": [
+        { "label": "Bitdeer site map", "url": "https://www.bitdeer.com", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "btdr-tydal",
+      "companyTicker": "BTDR",
+      "name": "Tydal",
+      "location": { "lat": 63.0392, "lng": 11.5358, "city": "Tydal", "region": "Trøndelag", "country": "Norway" },
+      "capacity": { "currentMW": 150, "plannedMW": 225 },
+      "workload": { "btcMiningPct": 80, "aiHpcPct": 20 },
+      "powerSource": "hydro",
+      "powerSourceDetail": "Nordic hydro, 100% renewable",
+      "status": "under_construction",
+      "notes": "Cloud/HPC segment anchor in Europe. AI capacity being phased in.",
+      "sources": [
+        { "label": "Bitdeer Tydal expansion", "url": "https://www.bitdeer.com/newsroom", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "btdr-gedu",
+      "companyTicker": "BTDR",
+      "name": "Gedu",
+      "location": { "lat": 26.9260, "lng": 89.5350, "city": "Gedu", "region": "Chukha", "country": "Bhutan" },
+      "capacity": { "currentMW": 100 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "hydro",
+      "status": "operational",
+      "sources": [
+        { "label": "Bitdeer Bhutan JV", "url": "https://www.bitdeer.com/newsroom", "date": "2026-04-21" }
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "hive-boden",
+      "companyTicker": "HIVE",
+      "name": "Boden",
+      "location": { "lat": 65.8253, "lng": 21.6883, "city": "Boden", "region": "Norrbotten", "country": "Sweden" },
+      "capacity": { "currentMW": 35 },
+      "workload": { "btcMiningPct": 85, "aiHpcPct": 15 },
+      "powerSource": "hydro",
+      "status": "operational",
+      "sources": [
+        { "label": "HIVE operations overview", "url": "https://hivedigitaltechnologies.com/operations", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "hive-lachute",
+      "companyTicker": "HIVE",
+      "name": "Lachute",
+      "location": { "lat": 45.6500, "lng": -74.3333, "city": "Lachute", "region": "QC", "country": "Canada" },
+      "capacity": { "currentMW": 30 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "hydro",
+      "status": "operational",
+      "sources": [
+        { "label": "HIVE Canadian ops", "url": "https://hivedigitaltechnologies.com/operations", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "hive-yguazu",
+      "companyTicker": "HIVE",
+      "name": "Yguazú GPU Campus",
+      "location": { "lat": -25.4167, "lng": -55.0833, "city": "Yguazú", "region": "Alto Paraná", "country": "Paraguay" },
+      "capacity": { "currentMW": 100, "plannedMW": 200 },
+      "workload": { "btcMiningPct": 40, "aiHpcPct": 60 },
+      "powerSource": "hydro",
+      "powerSourceDetail": "Itaipu hydro — cheapest large-scale renewable in the Americas",
+      "status": "under_construction",
+      "notes": "GPU HPC pivot centered here. Large H100/H200 fleet planned.",
+      "sources": [
+        { "label": "HIVE Paraguay HPC buildout", "url": "https://hivedigitaltechnologies.com/news", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "mara-granbury",
+      "companyTicker": "MARA",
+      "name": "Granbury",
+      "location": { "lat": 32.4421, "lng": -97.7942, "city": "Granbury", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 280 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "sources": [
+        { "label": "MARA 10-K FY2024", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001507605&type=10-K", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "mara-kearney",
+      "companyTicker": "MARA",
+      "name": "Kearney",
+      "location": { "lat": 40.6995, "lng": -99.0817, "city": "Kearney", "region": "NE", "country": "USA" },
+      "capacity": { "currentMW": 125 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "sources": [
+        { "label": "MARA site disclosures", "url": "https://ir.mara.com/news-events/press-releases", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "mara-abu-dhabi",
+      "companyTicker": "MARA",
+      "name": "Abu Dhabi JV",
+      "location": { "lat": 24.4539, "lng": 54.3773, "city": "Abu Dhabi", "region": "Abu Dhabi", "country": "UAE" },
+      "capacity": { "currentMW": 250 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "mixed",
+      "status": "operational",
+      "tenants": ["Zero Two"],
+      "notes": "Joint venture with Zero Two / ADQ for large-scale BTC mining in UAE.",
+      "sources": [
+        { "label": "MARA MENA partnership disclosures", "url": "https://ir.mara.com/news-events/press-releases", "date": "2026-04-21" }
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "riot-corsicana",
+      "companyTicker": "RIOT",
+      "name": "Corsicana",
+      "location": { "lat": 32.0954, "lng": -96.4686, "city": "Corsicana", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 400, "plannedMW": 600, "finalTargetMW": 1000 },
+      "workload": { "btcMiningPct": 95, "aiHpcPct": 5 },
+      "powerSource": "grid",
+      "status": "under_construction",
+      "notes": "Flagship 1GW campus. Riot exploring HPC conversion on a subset of the site, not yet contracted.",
+      "sources": [
+        { "label": "Riot Platforms Corsicana build update", "url": "https://www.riotplatforms.com/investors/news-events", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "riot-rockdale",
+      "companyTicker": "RIOT",
+      "name": "Rockdale (Whinstone)",
+      "location": { "lat": 30.6552, "lng": -97.0017, "city": "Rockdale", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 700 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "sources": [
+        { "label": "Riot 10-K FY2024", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001167419&type=10-K", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "cifr-odessa",
+      "companyTicker": "CIFR",
+      "name": "Odessa (Alborz / Bear / Chief)",
+      "location": { "lat": 31.8457, "lng": -102.3676, "city": "Odessa", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 305 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "sources": [
+        { "label": "Cipher Mining 10-K FY2024", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001819989&type=10-K", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "cifr-barber-lake",
+      "companyTicker": "CIFR",
+      "name": "Barber Lake",
+      "location": { "lat": 32.2740, "lng": -100.9176, "city": "Colorado City", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 0, "plannedMW": 300, "finalTargetMW": 500 },
+      "workload": { "btcMiningPct": 0, "aiHpcPct": 100 },
+      "powerSource": "grid",
+      "status": "planned",
+      "notes": "Announced as HPC/AI conversion site. Contracted tenants partially disclosed.",
+      "sources": [
+        { "label": "Cipher HPC strategy update", "url": "https://investors.ciphermining.com/news-events/press-releases", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "cifr-black-pearl",
+      "companyTicker": "CIFR",
+      "name": "Black Pearl",
+      "location": { "lat": 31.5890, "lng": -102.1245, "city": "Ward County", "region": "TX", "country": "USA" },
+      "capacity": { "currentMW": 0, "plannedMW": 300 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "under_construction",
+      "sources": [
+        { "label": "Cipher Mining site updates", "url": "https://investors.ciphermining.com/news-events/press-releases", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "clsk-sandersville",
+      "companyTicker": "CLSK",
+      "name": "Sandersville",
+      "location": { "lat": 32.9810, "lng": -82.8101, "city": "Sandersville", "region": "GA", "country": "USA" },
+      "capacity": { "currentMW": 75 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "notes": "Pure-play BTC. Management publicly de-prioritised AI pivot — counter-example in the roster.",
+      "sources": [
+        { "label": "CleanSpark 10-K FY2024", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000827876&type=10-K", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "clsk-dalton",
+      "companyTicker": "CLSK",
+      "name": "Dalton",
+      "location": { "lat": 34.7698, "lng": -84.9702, "city": "Dalton", "region": "GA", "country": "USA" },
+      "capacity": { "currentMW": 30 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "sources": [
+        { "label": "CleanSpark operations", "url": "https://investors.cleanspark.com", "date": "2026-04-21" }
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "clsk-cheyenne",
+      "companyTicker": "CLSK",
+      "name": "Cheyenne",
+      "location": { "lat": 41.1400, "lng": -104.8202, "city": "Cheyenne", "region": "WY", "country": "USA" },
+      "capacity": { "currentMW": 75 },
+      "workload": { "btcMiningPct": 100, "aiHpcPct": 0 },
+      "powerSource": "grid",
+      "status": "operational",
+      "notes": "Acquired from Mawson Infrastructure. BTC-only.",
+      "sources": [
+        { "label": "CleanSpark press release — Mawson acquisition", "url": "https://investors.cleanspark.com/press-releases", "date": "2026-04-21" }
+      ],
+      "confidence": "medium"
+    }
+  ]
+}

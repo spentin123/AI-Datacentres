@@ -1,0 +1,37 @@
+:root {
+  /* Backgrounds — brighter overall, less pure black */
+  --bg-0: #0a0f17;
+  --bg-1: #121822;
+  --bg-2: #1a2230;
+
+  /* Foreground text — lifted so labels read clearly */
+  --fg-0: #f1f5f9;
+  --fg-mute: #94a3b8;
+  --fg-dim: #64748b;
+
+  /* Accents — slightly more saturated/bright */
+  --amber: #fbbf24;
+  --amber-glow: #fcd34d;
+  --cyan: #38bdf8;
+  --cyan-glow: #7dd3fc;
+  --ok: #4ade80;
+  --danger: #f87171;
+
+  /* Lines and grids — more visible */
+  --grid: rgba(56, 189, 248, 0.12);
+  --border-soft: rgba(56, 189, 248, 0.32);
+  --border-hard: rgba(56, 189, 248, 0.7);
+
+  /* Timing */
+  --t-fast: 120ms;
+  --t-med: 280ms;
+  --t-slow: 600ms;
+
+  /* Type scale (mono) — bigger readouts */
+  --fs-label: 11px;
+  --fs-meta: 12px;
+  --fs-body: 13px;
+  --fs-value: 36px;
+  --fs-hero: 52px;
+  --ls-label: 0.14em;
+}
