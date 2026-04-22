@@ -1,10 +1,31 @@
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 import { useAppStore } from "@/state/useAppStore";
-import type { Dataset } from "@/types";
+import type { Dataset, PowerSource } from "@/types";
 import { HUDFrame } from "@/components/hud/HUDFrame";
+import {
+  POWER_SOURCE_COLORS,
+  POWER_SOURCE_LABELS,
+} from "@/components/globe/markerUtils";
+import { TENANT_HQ } from "@/data/tenants";
 
 export function Legend({ dataset }: { dataset: Dataset }) {
   const { viewMode } = useAppStore();
+
+  const powerSourcesInUse = useMemo(() => {
+    const set = new Set<PowerSource>();
+    for (const s of dataset.sites) set.add(s.powerSource);
+    const order: PowerSource[] = [
+      "hydro",
+      "nuclear",
+      "wind",
+      "solar",
+      "gas",
+      "grid",
+      "mixed",
+    ];
+    return order.filter((p) => set.has(p));
+  }, [dataset.sites]);
 
   return (
     <motion.div
@@ -29,6 +50,29 @@ export function Legend({ dataset }: { dataset: Dataset }) {
                 <span>100% AI</span>
               </div>
             </div>
+          ) : viewMode === "power_source" ? (
+            <div>
+              <div className="hud-label mb-1.5">POWER SOURCE</div>
+              <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+                {powerSourcesInUse.map((p) => (
+                  <div
+                    key={p}
+                    className="flex items-center gap-1.5 text-[11px]"
+                  >
+                    <span
+                      className="w-2 h-2 rounded-full"
+                      style={{
+                        background: POWER_SOURCE_COLORS[p],
+                        boxShadow: `0 0 4px ${POWER_SOURCE_COLORS[p]}`,
+                      }}
+                    />
+                    <span style={{ color: "var(--fg-0)" }}>
+                      {POWER_SOURCE_LABELS[p]}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           ) : (
             <div>
               <div className="hud-label mb-1.5">OPERATORS</div>
@@ -48,6 +92,27 @@ export function Legend({ dataset }: { dataset: Dataset }) {
               </div>
             </div>
           )}
+
+          <div className="border-t border-[var(--border-soft)] pt-2">
+            <div className="hud-label mb-1.5">TENANT LINKS</div>
+            <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+              {Object.values(TENANT_HQ).map((t) => (
+                <div
+                  key={t.name}
+                  className="flex items-center gap-1.5 text-[10px]"
+                >
+                  <span
+                    className="block w-3 h-[2px]"
+                    style={{
+                      background: t.color,
+                      boxShadow: `0 0 4px ${t.color}`,
+                    }}
+                  />
+                  <span style={{ color: "var(--fg-0)" }}>{t.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
           <div className="border-t border-[var(--border-soft)] pt-2">
             <div className="hud-label mb-1.5">SITE SIZE · MW</div>

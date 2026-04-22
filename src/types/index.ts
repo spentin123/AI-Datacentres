@@ -17,7 +17,7 @@ export type SiteStatus =
 export type AiStrategy = "pureplay_ai" | "hybrid" | "exploring";
 export type Confidence = "high" | "medium" | "low";
 export type Exchange = "NASDAQ" | "NYSE" | "OTC" | "ASX" | "TSX";
-export type ViewMode = "company" | "ai_allocation";
+export type ViewMode = "company" | "ai_allocation" | "power_source";
 
 export interface WorkloadMix {
   btcMiningPct: number;

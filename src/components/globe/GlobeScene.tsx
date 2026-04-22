@@ -2,7 +2,14 @@ import { useMemo, useRef, useState, useEffect } from "react";
 import Globe from "react-globe.gl";
 import type { Dataset, DataCenter } from "@/types";
 import { useAppStore } from "@/state/useAppStore";
-import { buildPoints, buildRings, type PointDatum } from "./markerUtils";
+import {
+  buildPoints,
+  buildRings,
+  buildArcs,
+  type PointDatum,
+  type ArcDatum,
+} from "./markerUtils";
+import { HoverReticle } from "./HoverReticle";
 import { companyByTicker, countryCentroid } from "@/lib/derive";
 import { useGlobeCamera } from "./useGlobeCamera";
 import { formatMW, formatPct } from "@/lib/format";
@@ -51,6 +58,11 @@ export function GlobeScene({ dataset }: Props) {
     [visibleSites, compByTicker, activeTickers],
   );
 
+  const arcs = useMemo(
+    () => buildArcs(visibleSites, activeTickers),
+    [visibleSites, activeTickers],
+  );
+
   const selectedSite: DataCenter | null = useMemo(
     () =>
       selectedSiteId
@@ -59,7 +71,7 @@ export function GlobeScene({ dataset }: Props) {
     [selectedSiteId, dataset.sites],
   );
 
-  useGlobeCamera(globeRef, selectedSite);
+  useGlobeCamera(globeRef, selectedSite, selectedCountry);
 
   // Fly to country centroid when a country is selected
   useEffect(() => {
@@ -157,6 +169,27 @@ export function GlobeScene({ dataset }: Props) {
             containerRef.current.style.cursor = d ? "pointer" : "grab";
           }
         }}
+        arcsData={arcs}
+        arcStartLat={(d: object) => (d as ArcDatum).startLat}
+        arcStartLng={(d: object) => (d as ArcDatum).startLng}
+        arcEndLat={(d: object) => (d as ArcDatum).endLat}
+        arcEndLng={(d: object) => (d as ArcDatum).endLng}
+        arcColor={(d: object) => (d as ArcDatum).color}
+        arcStroke={(d: object) => (d as ArcDatum).stroke}
+        arcDashLength={0.35}
+        arcDashGap={0.15}
+        arcDashAnimateTime={2400}
+        arcAltitudeAutoScale={0.45}
+        arcLabel={(d: object) => {
+          const a = d as ArcDatum;
+          return `
+            <div style="background:rgba(10,14,20,0.92);border:1px solid ${a.tenant.color};padding:6px 9px;font-family:'JetBrains Mono',monospace;color:#e6edf3;font-size:11px">
+              <div style="font-size:9px;letter-spacing:0.14em;color:${a.tenant.color};text-transform:uppercase">TENANT LINK</div>
+              <div style="margin-top:2px">${a.site.companyTicker} · ${a.site.name}</div>
+              <div style="color:${a.tenant.color};margin-top:1px">→ ${a.tenant.name} · ${a.tenant.city}</div>
+            </div>
+          `;
+        }}
         ringsData={rings}
         ringLat={(d: object) => (d as { lat: number }).lat}
         ringLng={(d: object) => (d as { lng: number }).lng}
@@ -172,6 +205,7 @@ export function GlobeScene({ dataset }: Props) {
         }}
         ringAltitude={0.006}
       />
+      <HoverReticle globeRef={globeRef} sites={dataset.sites} />
     </div>
   );
 }

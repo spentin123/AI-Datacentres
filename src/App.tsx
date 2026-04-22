@@ -2,20 +2,25 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { getDataset } from "@/data/dataset";
 import { GlobeScene } from "@/components/globe/GlobeScene";
+import { TickerMatrix } from "@/components/matrix/TickerMatrix";
+import { PipelineTimeline } from "@/components/timeline/PipelineTimeline";
 import { ScanlineOverlay } from "@/components/hud/ScanlineOverlay";
 import { SiteDetailPanel } from "@/components/panels/SiteDetailPanel";
 import { StatsTicker } from "@/components/panels/StatsTicker";
 import { CompanyFilterBar } from "@/components/panels/CompanyFilterBar";
 import { ViewModeToggle } from "@/components/panels/ViewModeToggle";
+import { DisplayModeToggle } from "@/components/panels/DisplayModeToggle";
 import { Legend } from "@/components/panels/Legend";
 import { CountryList } from "@/components/panels/CountryList";
 import { StatusFilterBar } from "@/components/panels/StatusFilterBar";
 import { BootSequence } from "@/components/intro/BootSequence";
 import { useAppStore } from "@/state/useAppStore";
+import { useUrlStateSync } from "@/lib/urlState";
 
 export default function App() {
   const dataset = getDataset();
-  const { bootComplete, setSelectedSiteId } = useAppStore();
+  const { bootComplete, displayMode, setSelectedSiteId } = useAppStore();
+  useUrlStateSync();
 
   // Close panel if user clicks blank canvas area
   useEffect(() => {
@@ -31,8 +36,10 @@ export default function App() {
 
   return (
     <div className="relative w-full h-full bg-bg-0 overflow-hidden">
-      {/* Globe fills background */}
-      <GlobeScene dataset={dataset} />
+      {/* Primary visualization: globe, matrix scatter, or pipeline timeline */}
+      {displayMode === "globe" && <GlobeScene dataset={dataset} />}
+      {displayMode === "matrix" && <TickerMatrix dataset={dataset} />}
+      {displayMode === "timeline" && <PipelineTimeline dataset={dataset} />}
 
       {/* Faint grid backdrop (sub-atmosphere) */}
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
@@ -63,13 +70,15 @@ export default function App() {
           <Legend dataset={dataset} />
         </div>
 
-        {/* Country list — left side, filter + metrics */}
-        <div
-          className="absolute left-4 top-[260px] pointer-events-auto"
-          data-hud
-        >
-          <CountryList dataset={dataset} />
-        </div>
+        {/* Country list — left side, filter + metrics (globe mode only) */}
+        {displayMode === "globe" && (
+          <div
+            className="absolute left-4 top-[260px] pointer-events-auto"
+            data-hud
+          >
+            <CountryList dataset={dataset} />
+          </div>
+        )}
 
         {/* Bottom bar: view mode toggle + company filter, stacked */}
         <div
@@ -83,7 +92,10 @@ export default function App() {
             <CompanyFilterBar dataset={dataset} />
           </div>
           <div className="flex items-center justify-between gap-3 flex-wrap">
-            <ViewModeToggle />
+            <div className="flex items-center gap-4 flex-wrap">
+              <DisplayModeToggle />
+              <ViewModeToggle />
+            </div>
             <div className="hud-meta flex items-center gap-1.5">
               <span
                 className="w-1.5 h-1.5 rounded-full bg-[var(--ok)] animate-pulse-soft"

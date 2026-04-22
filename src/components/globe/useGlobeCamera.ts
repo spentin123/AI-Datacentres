@@ -16,6 +16,7 @@ interface GlobeMethods {
 export function useGlobeCamera(
   globeRef: MutableRefObject<GlobeMethods | null>,
   selectedSite: DataCenter | null,
+  selectedCountry: string | null,
 ) {
   const lastSelectedId = useRef<string | null>(null);
 
@@ -24,11 +25,11 @@ export function useGlobeCamera(
     if (!g) return;
     const controls = g.controls();
     if (controls) {
-      // Keep auto-rotate on except while a site is selected.
+      // Pause auto-rotate while a site or country is selected.
       // Speed is managed by the altitude-aware loop in GlobeScene.
-      controls.autoRotate = !selectedSite;
+      controls.autoRotate = !selectedSite && !selectedCountry;
     }
-  }, [globeRef, selectedSite]);
+  }, [globeRef, selectedSite, selectedCountry]);
 
   useEffect(() => {
     const g = globeRef.current;

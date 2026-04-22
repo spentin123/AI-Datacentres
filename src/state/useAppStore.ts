@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import type { ViewMode, SiteStatus } from "@/types";
 
+export type DisplayMode = "globe" | "matrix" | "timeline";
+
 interface AppState {
   selectedSiteId: string | null;
   hoveredSiteId: string | null;
@@ -8,6 +10,7 @@ interface AppState {
   activeTickers: Set<string>;
   statusFilters: Set<SiteStatus>;
   viewMode: ViewMode;
+  displayMode: DisplayMode;
   bootComplete: boolean;
 
   setSelectedSiteId: (id: string | null) => void;
@@ -19,6 +22,7 @@ interface AppState {
   resetTickers: (tickers: string[]) => void;
   toggleStatus: (status: SiteStatus) => void;
   setViewMode: (m: ViewMode) => void;
+  setDisplayMode: (m: DisplayMode) => void;
   setBootComplete: (v: boolean) => void;
 }
 
@@ -34,6 +38,7 @@ export const useAppStore = create<AppState>((set) => ({
     "announced",
   ]),
   viewMode: "ai_allocation",
+  displayMode: "globe",
   bootComplete: false,
 
   setSelectedSiteId: (id) => set({ selectedSiteId: id }),
@@ -63,6 +68,7 @@ export const useAppStore = create<AppState>((set) => ({
     }),
 
   setViewMode: (m) => set({ viewMode: m }),
+  setDisplayMode: (m) => set({ displayMode: m }),
   setBootComplete: (v) => set({ bootComplete: v }),
 }));
 
