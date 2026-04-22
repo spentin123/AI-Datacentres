@@ -11,7 +11,7 @@ dist-ssr
 *.log
 
 # TypeScript incremental build + emitted config output
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 vite.config.d.ts
 vite.config.js
 
