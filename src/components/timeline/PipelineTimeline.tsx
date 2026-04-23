@@ -309,8 +309,8 @@ export function PipelineTimeline({ dataset }: { dataset: Dataset }) {
           );
         })}
 
-        {/* Legend (top-right): status dash semantics */}
-        <g transform={`translate(${padding.left + innerW - 210}, 12)`}>
+        {/* Legend (top-right): status semantics with dash + opacity */}
+        <g transform={`translate(${padding.left + innerW - 380}, 12)`}>
           <text
             x="0"
             y="0"
@@ -321,14 +321,37 @@ export function PipelineTimeline({ dataset }: { dataset: Dataset }) {
           >
             STATUS
           </text>
-          <g transform="translate(56, -4)">
-            <rect x="0" y="0" width="22" height="6" fill="var(--cyan)" fillOpacity="0.45" stroke="var(--cyan)" strokeWidth="0.8" />
-            <text x="28" y="6" fontFamily="'JetBrains Mono', monospace" fontSize="9" fill="var(--fg-0)">LIVE</text>
-          </g>
-          <g transform="translate(110, -4)">
-            <rect x="0" y="0" width="22" height="6" fill="var(--cyan)" fillOpacity="0.25" stroke="var(--cyan)" strokeWidth="0.8" strokeDasharray="3 3" />
-            <text x="28" y="6" fontFamily="'JetBrains Mono', monospace" fontSize="9" fill="var(--fg-mute)">PLANNED</text>
-          </g>
+          {(
+            [
+              { key: "live", label: "LIVE", opacity: 1, dashed: false },
+              { key: "build", label: "BUILD", opacity: 0.78, dashed: true },
+              { key: "plan", label: "PLAN", opacity: 0.48, dashed: true },
+              { key: "annc", label: "ANNC", opacity: 0.32, dashed: true },
+            ] as const
+          ).map((s, i) => (
+            <g key={s.key} transform={`translate(${56 + i * 78}, -4)`}>
+              <rect
+                x="0"
+                y="0"
+                width="22"
+                height="6"
+                fill="var(--cyan)"
+                fillOpacity={s.opacity * 0.45}
+                stroke="var(--cyan)"
+                strokeWidth="0.8"
+                strokeDasharray={s.dashed ? "3 3" : undefined}
+              />
+              <text
+                x="28"
+                y="6"
+                fontFamily="'JetBrains Mono', monospace"
+                fontSize="9"
+                fill={s.opacity > 0.5 ? "var(--fg-0)" : "var(--fg-mute)"}
+              >
+                {s.label}
+              </text>
+            </g>
+          ))}
         </g>
       </motion.svg>
     </div>

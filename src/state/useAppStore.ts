@@ -13,6 +13,7 @@ interface AppState {
   displayMode: DisplayMode;
   bootComplete: boolean;
   cinemaActive: boolean;
+  scrubYear: number | null;
 
   setSelectedSiteId: (id: string | null) => void;
   setHoveredSiteId: (id: string | null) => void;
@@ -26,6 +27,7 @@ interface AppState {
   setDisplayMode: (m: DisplayMode) => void;
   setBootComplete: (v: boolean) => void;
   setCinemaActive: (v: boolean) => void;
+  setScrubYear: (y: number | null) => void;
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -43,6 +45,7 @@ export const useAppStore = create<AppState>((set) => ({
   displayMode: "globe",
   bootComplete: false,
   cinemaActive: false,
+  scrubYear: null,
 
   setSelectedSiteId: (id) => set({ selectedSiteId: id }),
   setHoveredSiteId: (id) => set({ hoveredSiteId: id }),
@@ -74,6 +77,7 @@ export const useAppStore = create<AppState>((set) => ({
   setDisplayMode: (m) => set({ displayMode: m }),
   setBootComplete: (v) => set({ bootComplete: v }),
   setCinemaActive: (v) => set({ cinemaActive: v }),
+  setScrubYear: (y) => set({ scrubYear: y }),
 }));
 
 if (import.meta.env.DEV) {

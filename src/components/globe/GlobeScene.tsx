@@ -31,6 +31,7 @@ export function GlobeScene({ dataset }: Props) {
     activeTickers,
     statusFilters,
     selectedCountry,
+    scrubYear,
   } = useAppStore();
 
   const compByTicker = useMemo(
@@ -49,8 +50,15 @@ export function GlobeScene({ dataset }: Props) {
   );
 
   const points = useMemo(
-    () => buildPoints(visibleSites, compByTicker, viewMode, activeTickers),
-    [visibleSites, compByTicker, viewMode, activeTickers],
+    () =>
+      buildPoints(
+        visibleSites,
+        compByTicker,
+        viewMode,
+        activeTickers,
+        scrubYear,
+      ),
+    [visibleSites, compByTicker, viewMode, activeTickers, scrubYear],
   );
 
   const rings = useMemo(

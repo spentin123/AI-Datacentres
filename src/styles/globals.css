@@ -235,3 +235,74 @@
     animation: none !important;
   }
 }
+
+/* ============ Print / PDF export ============
+   Triggered when body gets .print-mode (via Export button). The site panel
+   expands to the full page as a brief, the rest of the UI hides. Colors are
+   inverted to light so printouts don't waste toner.                      */
+body.print-mode {
+  background: #ffffff !important;
+  color: #0a0a0a !important;
+}
+body.print-mode canvas,
+body.print-mode [data-hud]:not(aside),
+body.print-mode .scanlines,
+body.print-mode .grid-bg,
+body.print-mode .crt-flicker {
+  display: none !important;
+  visibility: hidden !important;
+}
+body.print-mode aside {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+  background: #ffffff !important;
+  color: #0a0a0a !important;
+}
+body.print-mode aside .glass {
+  background: #ffffff !important;
+  border-color: #d1d5db !important;
+}
+body.print-mode aside * {
+  color: #0a0a0a !important;
+  text-shadow: none !important;
+}
+body.print-mode aside a {
+  color: #1e40af !important;
+  text-decoration: underline !important;
+}
+body.print-mode aside .chromatic,
+body.print-mode aside h2 {
+  color: #0a0a0a !important;
+  filter: none !important;
+}
+body.print-mode aside button[aria-label="Close"],
+body.print-mode aside [data-no-print] {
+  display: none !important;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+  canvas,
+  [data-hud]:not(aside),
+  .scanlines,
+  .grid-bg {
+    display: none !important;
+  }
+  aside {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    background: #ffffff !important;
+    color: #0a0a0a !important;
+  }
+  aside * {
+    color: #0a0a0a !important;
+    text-shadow: none !important;
+  }
+}

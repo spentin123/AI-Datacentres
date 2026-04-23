@@ -5,6 +5,7 @@ import {
   isSiteStale,
   mwToAltitude,
   mwToRadius,
+  siteAtYear,
 } from "@/lib/derive";
 import { lookupTenant, type TenantHQ } from "@/data/tenants";
 
@@ -42,10 +43,14 @@ export function buildPoints(
   companiesByTicker: Record<string, Company>,
   viewMode: ViewMode,
   activeTickers: Set<string>,
+  scrubYear: number | null = null,
 ): PointDatum[] {
   return sites
     .filter((s) => activeTickers.size === 0 || activeTickers.has(s.companyTicker))
     .map((site) => {
+      const scrub = scrubYear == null ? null : siteAtYear(site, scrubYear);
+      if (scrub && !scrub.visible) return null;
+      const mw = scrub ? scrub.mw : site.capacity.currentMW;
       const company = companiesByTicker[site.companyTicker];
       let color: string;
       if (viewMode === "company") color = company?.color ?? "#22d3ee";
@@ -53,15 +58,18 @@ export function buildPoints(
         color = POWER_SOURCE_COLORS[site.powerSource];
       else color = aiGradientColor(site.workload.aiHpcPct);
       if (isSiteStale(site)) color = desaturate(color, 0.6);
+      // During a scrub fade-in, desaturate the color to signal "not yet live".
+      if (scrub && scrub.fade < 1) color = desaturate(color, 1 - scrub.fade);
       return {
         site,
         lat: site.location.lat,
         lng: site.location.lng,
-        altitude: mwToAltitude(site.capacity.currentMW),
-        radius: mwToRadius(site.capacity.currentMW),
+        altitude: mwToAltitude(mw),
+        radius: mwToRadius(mw),
         color,
       };
-    });
+    })
+    .filter((p): p is PointDatum => p !== null);
 }
 
 export interface RingDatum {

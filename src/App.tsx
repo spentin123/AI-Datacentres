@@ -12,6 +12,7 @@ import { AnnouncementTicker } from "@/components/panels/AnnouncementTicker";
 import { CompanyFilterBar } from "@/components/panels/CompanyFilterBar";
 import { ViewModeToggle } from "@/components/panels/ViewModeToggle";
 import { DisplayModeToggle } from "@/components/panels/DisplayModeToggle";
+import { TimeScrub } from "@/components/panels/TimeScrub";
 import { Legend } from "@/components/panels/Legend";
 import { CountryList } from "@/components/panels/CountryList";
 import { StatusFilterBar } from "@/components/panels/StatusFilterBar";
@@ -73,10 +74,11 @@ export default function App() {
           <Legend dataset={dataset} />
         </div>
 
-        {/* Country list — left side, filter + metrics (globe mode only) */}
+        {/* Country list — left side, filter + metrics (globe mode only,
+            hidden on narrow where it'd overlap the ticker/filters) */}
         {displayMode === "globe" && (
           <div
-            className="absolute left-4 top-[260px] pointer-events-auto"
+            className="absolute left-4 top-[260px] pointer-events-auto hidden lg:block"
             data-hud
           >
             <CountryList dataset={dataset} />
@@ -100,6 +102,7 @@ export default function App() {
               <DisplayModeToggle />
               <ViewModeToggle />
               <CinemaTour dataset={dataset} />
+              <TimeScrub />
             </div>
             <div className="hud-meta flex items-center gap-1.5">
               <span

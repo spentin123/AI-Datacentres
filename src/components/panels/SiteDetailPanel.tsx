@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Zap, MapPin, Building2 } from "lucide-react";
+import { X, Zap, MapPin, Building2, Printer } from "lucide-react";
 import type { DataCenter, Company } from "@/types";
 import { useAppStore } from "@/state/useAppStore";
 import { CornerBrackets } from "@/components/hud/CornerBrackets";
@@ -97,13 +97,35 @@ export function SiteDetailPanel({ sites, companies }: Props) {
                     </span>
                   </div>
                 </div>
-                <button
-                  onClick={() => setSelectedSiteId(null)}
-                  aria-label="Close"
-                  className="shrink-0 p-1 border border-[var(--border-soft)] hover:border-[var(--border-hard)] hover:text-[var(--cyan)]"
-                >
-                  <X size={14} />
-                </button>
+                <div className="shrink-0 flex items-center gap-1.5">
+                  <button
+                    onClick={() => {
+                      document.body.classList.add("print-mode");
+                      const done = () => {
+                        document.body.classList.remove("print-mode");
+                        window.removeEventListener("afterprint", done);
+                      };
+                      window.addEventListener("afterprint", done);
+                      requestAnimationFrame(() =>
+                        requestAnimationFrame(() => window.print()),
+                      );
+                    }}
+                    aria-label="Export as PDF"
+                    title="Export as PDF"
+                    className="p-1 border border-[var(--border-soft)] hover:border-[var(--cyan)] hover:text-[var(--cyan)]"
+                    data-no-print
+                  >
+                    <Printer size={14} />
+                  </button>
+                  <button
+                    onClick={() => setSelectedSiteId(null)}
+                    aria-label="Close"
+                    className="p-1 border border-[var(--border-soft)] hover:border-[var(--border-hard)] hover:text-[var(--cyan)]"
+                    data-no-print
+                  >
+                    <X size={14} />
+                  </button>
+                </div>
               </div>
             </div>
 

@@ -117,6 +117,45 @@ export function isSiteStale(site: DataCenter, now: Date = new Date()): boolean {
   return d < twelveMonthsAgo;
 }
 
+/**
+ * A site's state at a given year. Used by the time-scrub to fade sites in as
+ * they come online. Ramps in over the 12 months ending at the online year so
+ * the globe visibly grows rather than popping.
+ */
+export function siteAtYear(
+  site: DataCenter,
+  year: number,
+): { visible: boolean; mw: number; fade: number } {
+  const statusOnline: Record<DataCenter["status"], number> = {
+    operational: 2024,
+    under_construction: 2026,
+    planned: 2027,
+    announced: 2028,
+    decommissioned: 2022,
+  };
+  let onlineYear: number;
+  if (site.status === "operational" && site.commissioned) {
+    const parsed = parseInt(site.commissioned.slice(0, 4), 10);
+    onlineYear = Number.isFinite(parsed) ? parsed : statusOnline.operational;
+  } else {
+    onlineYear = statusOnline[site.status];
+  }
+
+  // Target MW: use finalTargetMW if we're projecting forward, else currentMW.
+  const target = Math.max(
+    site.capacity.currentMW,
+    year >= onlineYear + 1
+      ? (site.capacity.plannedMW ?? site.capacity.finalTargetMW ?? site.capacity.currentMW)
+      : site.capacity.currentMW,
+  );
+
+  if (year < onlineYear - 1) return { visible: false, mw: 0, fade: 0 };
+  if (year >= onlineYear) return { visible: true, mw: target, fade: 1 };
+  // One-year fade-in window.
+  const t = Math.max(0, Math.min(1, year - (onlineYear - 1)));
+  return { visible: t > 0.05, mw: target * t, fade: t };
+}
+
 /** Desaturate a hex/rgb color towards grey. t=0 returns original, t=1 returns grey. */
 export function desaturate(color: string, t = 0.6): string {
   const m = color.match(/^#([0-9a-f]{6})$/i);

@@ -108,6 +108,37 @@ export function TickerMatrix({ dataset }: { dataset: Dataset }) {
   const fadeTicker = (ticker: string) =>
     activeTickers.size > 0 && !activeTickers.has(ticker);
 
+  // Place labels such that vertically adjacent bubbles don't stack on top of
+  // each other. Greedy pass sorted by Y; if the current label would overlap
+  // the previous, nudge it down. Also flip to left-anchor when the bubble is
+  // near the right edge so the label doesn't clip.
+  const placements = useMemo(() => {
+    const rightEdge = padding.left + innerW;
+    const labelHeight = 26;
+    const items = data.map((d) => {
+      const x = xOf(Math.max(d.aiMW, xMin));
+      const y = yOf(d.marketCap);
+      const r = rOf(d.totalMW);
+      const rightSide = x + r + 120 < rightEdge;
+      return { d, x, y, r, rightSide, labelY: y + 4 };
+    });
+    items.sort((a, b) => a.y - b.y);
+    // Resolve collisions within each side independently.
+    for (const side of [true, false] as const) {
+      let lastY = -Infinity;
+      for (const it of items) {
+        if (it.rightSide !== side) continue;
+        if (it.labelY < lastY + labelHeight) {
+          it.labelY = lastY + labelHeight;
+        }
+        lastY = it.labelY;
+      }
+    }
+    const map = new Map<string, (typeof items)[number]>();
+    for (const it of items) map.set(it.d.ticker, it);
+    return map;
+  }, [data, padding.left, innerW, xMin]);
+
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden">
       <motion.svg
@@ -258,12 +289,16 @@ export function TickerMatrix({ dataset }: { dataset: Dataset }) {
 
         {/* Bubbles */}
         {data.map((d) => {
-          const x = xOf(Math.max(d.aiMW, xMin));
-          const y = yOf(d.marketCap);
-          const r = rOf(d.totalMW);
+          const p = placements.get(d.ticker);
+          if (!p) return null;
+          const { x, y, r, rightSide, labelY } = p;
           const faded = fadeTicker(d.ticker);
           const color = STRATEGY_COLOR[d.strategy] ?? d.color;
           const hovered = hoveredSiteId === d.firstSiteId;
+          const labelX = rightSide ? x + r + 6 : x - r - 6;
+          const anchor = rightSide ? "start" : "end";
+          // Draw a short connector when the label was nudged off the bubble row.
+          const nudged = Math.abs(labelY - (y + 4)) > 2;
           return (
             <g
               key={d.ticker}
@@ -291,9 +326,21 @@ export function TickerMatrix({ dataset }: { dataset: Dataset }) {
                 }}
               />
               <circle cx={x} cy={y} r={2} fill={color} />
+              {nudged && (
+                <line
+                  x1={rightSide ? x + r : x - r}
+                  y1={y}
+                  x2={labelX}
+                  y2={labelY - 4}
+                  stroke={color}
+                  strokeOpacity={0.4}
+                  strokeWidth={0.6}
+                />
+              )}
               <text
-                x={x + r + 6}
-                y={y + 4}
+                x={labelX}
+                y={labelY}
+                textAnchor={anchor}
                 fontFamily="'JetBrains Mono', monospace"
                 fontSize="11"
                 fontWeight={500}
@@ -303,8 +350,9 @@ export function TickerMatrix({ dataset }: { dataset: Dataset }) {
                 {d.ticker}
               </text>
               <text
-                x={x + r + 6}
-                y={y + 17}
+                x={labelX}
+                y={labelY + 13}
+                textAnchor={anchor}
                 fontFamily="'JetBrains Mono', monospace"
                 fontSize="9"
                 fill="var(--fg-mute)"

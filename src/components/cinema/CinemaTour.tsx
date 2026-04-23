@@ -119,6 +119,7 @@ export function CinemaTour({ dataset }: { dataset: Dataset }) {
         setStopIdx((i) => i + 1);
       } else {
         setCinemaActive(false);
+        setSelectedSiteId(null);
       }
     }, STOP_MS);
     return () => {
